@@ -67,7 +67,7 @@ class Homepage extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "My Shop Name",
+                        "Good Life Pharmacy",
                         style: GoogleFonts.robotoSlab(
                           fontSize: screenWidth * 0.050,
                           fontWeight: FontWeight.w600,
