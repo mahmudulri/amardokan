@@ -14,10 +14,45 @@ class Homepage extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      drawer: Drawer(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        // centerTitle: true,
+        title: Row(
+          children: [
+            Text(
+              "Amar",
+              style: GoogleFonts.robotoSlab(
+                fontSize: screenWidth * 0.060,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff3498db),
+              ),
+            ),
+            Text(
+              "Dokan",
+              style: GoogleFonts.robotoSlab(
+                fontSize: screenWidth * 0.040,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+              onPressed: () => Scaffold.of(context).openDrawer(),
+              icon: Icon(
+                Icons.sort,
+                color: Colors.black,
+                size: screenWidth * 0.080,
+              ));
+        }),
+        elevation: 0.0,
+      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 50,
+          top: 15,
           left: 20,
           right: 20,
         ),
@@ -32,9 +67,9 @@ class Homepage extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "Amar Dokan",
+                        "My Shop Name",
                         style: GoogleFonts.robotoSlab(
-                          fontSize: 22,
+                          fontSize: screenWidth * 0.050,
                           fontWeight: FontWeight.w600,
                           color: Colors.black,
                         ),
@@ -56,7 +91,7 @@ class Homepage extends StatelessWidget {
                   Text(
                     "Radhanagor bazar, Sreepur , Magura",
                     style: GoogleFonts.roboto(
-                      fontSize: 16,
+                      fontSize: screenWidth * 0.040,
                       fontWeight: FontWeight.w300,
                       color: Colors.black,
                     ),
@@ -64,7 +99,7 @@ class Homepage extends StatelessWidget {
                   Text(
                     "01701987948 , 01986072587",
                     style: GoogleFonts.roboto(
-                      fontSize: 16,
+                      fontSize: screenWidth * 0.040,
                       fontWeight: FontWeight.w300,
                       color: Colors.black,
                     ),
@@ -80,7 +115,6 @@ class Homepage extends StatelessWidget {
               height: screenHeight * 0.020,
             ),
             Container(
-              height: screenHeight * 0.150,
               width: screenWidth,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -107,9 +141,9 @@ class Homepage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Total Due",
+                                    "Last Month due",
                                     style: GoogleFonts.oswald(
-                                      fontSize: 15,
+                                      fontSize: screenWidth * 0.040,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -117,7 +151,7 @@ class Homepage extends StatelessWidget {
                                   Text(
                                     "1028.40 tk",
                                     style: GoogleFonts.oswald(
-                                      fontSize: 15,
+                                      fontSize: screenWidth * 0.040,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -128,7 +162,7 @@ class Homepage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 30,
+                          width: screenWidth * 0.030,
                         ),
                         Expanded(
                           flex: 1,
@@ -143,9 +177,9 @@ class Homepage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Monthly Sales",
+                                    "Last 6 months Due",
                                     style: GoogleFonts.oswald(
-                                      fontSize: 15,
+                                      fontSize: screenWidth * 0.040,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -153,7 +187,7 @@ class Homepage extends StatelessWidget {
                                   Text(
                                     "14,028.40 tk",
                                     style: GoogleFonts.oswald(
-                                      fontSize: 15,
+                                      fontSize: screenWidth * 0.040,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w400,
                                     ),
