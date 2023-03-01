@@ -1,54 +1,41 @@
+import 'package:amardokan/widgets/lastoneyear.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:slide_digital_clock/slide_digital_clock.dart';
+import 'package:pie_chart/pie_chart.dart';
+
+import '../widgets/lastyear_section.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({super.key});
 
   String dateStr = DateTime.now().minute.toString();
+  Map<String, double> dataMap = {
+    "Kadirpara": 5434,
+    "Radhanagor": 3324,
+    "Mangondanga": 23452,
+    "Kuporia": 23242,
+    "Boralda": 43242,
+    "Sabdalpur": 23421,
+    "Shunatondi": 32423,
+  };
+  List<Color> colorlist = [
+    Colors.red,
+    Colors.green,
+    Colors.yellow,
+    Colors.cyan,
+    Colors.blue,
+    Colors.amber,
+    Colors.deepPurple,
+  ];
 
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: Drawer(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        // centerTitle: true,
-        title: Row(
-          children: [
-            Text(
-              "Amar",
-              style: GoogleFonts.robotoSlab(
-                fontSize: screenWidth * 0.060,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff3498db),
-              ),
-            ),
-            Text(
-              "Dokan",
-              style: GoogleFonts.robotoSlab(
-                fontSize: screenWidth * 0.040,
-                fontWeight: FontWeight.w600,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-        leading: Builder(builder: (context) {
-          return IconButton(
-              onPressed: () => Scaffold.of(context).openDrawer(),
-              icon: Icon(
-                Icons.sort,
-                color: Colors.black,
-                size: screenWidth * 0.080,
-              ));
-        }),
-        elevation: 0.0,
-      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(
@@ -141,7 +128,7 @@ class Homepage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Last Month due",
+                                    "Unpaid Customers",
                                     style: GoogleFonts.oswald(
                                       fontSize: screenWidth * 0.040,
                                       color: Colors.black,
@@ -149,7 +136,7 @@ class Homepage extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "1028.40 tk",
+                                    "136",
                                     style: GoogleFonts.oswald(
                                       fontSize: screenWidth * 0.040,
                                       color: Colors.black,
@@ -177,7 +164,7 @@ class Homepage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Last 6 months Due",
+                                    "Total Unpaid Amount",
                                     style: GoogleFonts.oswald(
                                       fontSize: screenWidth * 0.040,
                                       color: Colors.black,
@@ -185,10 +172,10 @@ class Homepage extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "14,028.40 tk",
+                                    "143,028.40 tk",
                                     style: GoogleFonts.oswald(
                                       fontSize: screenWidth * 0.040,
-                                      color: Colors.black,
+                                      color: Colors.red,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
@@ -203,6 +190,54 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: screenHeight * 0.020,
+            ),
+            Row(
+              children: [
+                Text(
+                  "Unpaid Amount of 12 Months",
+                  style: GoogleFonts.robotoSlab(
+                    fontSize: screenWidth * 0.050,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+            LastOneYear(),
+            SizedBox(
+              height: screenHeight * 0.020,
+            ),
+            //// Chart.......................
+
+            PieChart(
+              dataMap: dataMap,
+              animationDuration: Duration(milliseconds: 800),
+              chartLegendSpacing: 25,
+              chartRadius: MediaQuery.of(context).size.width / 3.2,
+              colorList: colorlist,
+              initialAngleInDegree: 0,
+              chartType: ChartType.ring,
+              ringStrokeWidth: 25,
+              // centerText: "",
+              legendOptions: LegendOptions(
+                showLegendsInRow: false,
+                legendPosition: LegendPosition.right,
+                showLegends: true,
+                legendShape: BoxShape.rectangle,
+                legendTextStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              chartValuesOptions: ChartValuesOptions(
+                showChartValueBackground: true,
+                showChartValues: false,
+                showChartValuesInPercentage: false,
+                showChartValuesOutside: false,
+                decimalPlaces: 1,
+              ),
+            )
           ],
         ),
       ),

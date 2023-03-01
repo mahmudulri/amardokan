@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'homepage.dart';
+import 'base/bottomnav.dart';
+import 'pages/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Homepage());
+        home: BottomNavPage());
   }
 }
