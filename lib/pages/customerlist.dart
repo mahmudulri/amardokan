@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomerList extends StatelessWidget {
   const CustomerList({super.key});
@@ -146,9 +147,16 @@ class CustomerList extends StatelessWidget {
                                             ),
                                           ),
                                           Spacer(),
-                                          Icon(
-                                            Icons.mail,
-                                            color: Colors.black,
+                                          GestureDetector(
+                                            onTap: () {
+                                              // ignore: deprecated_member_use
+                                              launch(
+                                                  'sms:+88017019879486?body=অনুগ্রহ করে আপনার বাকি টাকা পরিশোধ করুন। আপনার বাকির পরিমান 876 tk');
+                                            },
+                                            child: Icon(
+                                              Icons.mail,
+                                              color: Colors.black,
+                                            ),
                                           )
                                         ],
                                       ),
