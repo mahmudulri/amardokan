@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -191,14 +193,90 @@ class CustomerList extends StatelessWidget {
                                             ),
                                           ),
                                           Spacer(),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(12.0),
-                                              child: Icon(Icons.remove),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Get.defaultDialog(
+                                                title: "Fill the form",
+                                                content: Column(
+                                                  children: [
+                                                    Container(
+                                                      color: Colors.white,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(5.0),
+                                                        child: TextField(
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            hintText:
+                                                                "Enter Amount",
+                                                            border: InputBorder
+                                                                .none,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Container(
+                                                      color: Colors.white,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(5.0),
+                                                        child: TextField(
+                                                          maxLines: 5,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            hintText: "notes",
+                                                            border: InputBorder
+                                                                .none,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Container(
+                                                        color: Colors.cyan,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(5.0),
+                                                          child: Text(
+                                                            "Submit Data",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                          ),
+                                                        ))
+                                                  ],
+                                                ),
+                                                backgroundColor: Colors.black,
+                                                titleStyle: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                                middleTextStyle: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                                radius: 30,
+                                              );
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(12.0),
+                                                child: Icon(Icons.remove),
+                                              ),
                                             ),
                                           ),
                                         ],
